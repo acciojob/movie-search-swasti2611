@@ -28,14 +28,14 @@ const App = () => {
       <ul>
         {movies && movies.length > 0 ? (
           movies.map((movie) => (
-            <li key={movie.imdbID}>
+            <div key={movie.imdbID}>
               <li>
                 {movie.Title} ({movie.Year})
               </li>
               <li>
               <img src={movie.Poster} alt={movie.Title} />
               </li>
-              </li>
+              </div>
           ))
         ) : (
           <div className='error'>Invalid movie name. Please try again.</div>
