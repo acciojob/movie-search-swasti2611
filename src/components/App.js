@@ -19,9 +19,10 @@ const App = () => {
 
   return (
     <div>
+    <form onSubmit={handleSearch}>
       <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
-      <button onClick={handleSearch}>Search</button>
-
+      <button type="submit">Search</button>
+</form>
       <ul>
         {movies && movies.length > 0 ? (
           movies.map((movie) => (
