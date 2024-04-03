@@ -26,15 +26,16 @@ const App = () => {
       <button type="submit" >Search</button>
 </form> //
       <ul>
-        {!movies ? <div className='error'>Invalid movie name. Please try again.</div>
-        : movies.map((movie) => (
+        {movies ? 
+         movies.map((movie) => (
           <li key={movie.imdbID}>
             <h2>
               {movie.Title} ({movie.Year})
             </h2>
             <img src={movie.Poster} alt={movie.Title} />
           </li>
-        ))}
+        )):
+        <div className='error'>Invalid movie name. Please try again.</div>}
       </ul>
     </div>
   );
