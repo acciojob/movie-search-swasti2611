@@ -6,7 +6,9 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
 
-  function handleSearch() {
+  function handleSearch(e) {
+    e.preventDefault()
+
     axios.get(`https://www.omdbapi.com/?s=${search}&apikey=61e718e9`)
       .then((res) => {
         console.log(res.data.Search);
@@ -19,19 +21,21 @@ const App = () => {
 
   return (
     <div>
-    <form onSubmit={handleSearch}>
+    <form onSubmit={(e)=>handleSearch(e)}>
       <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
-      <button type="submit">Search</button>
-</form>
+      <button type="submit" >Search</button>
+</form> //
       <ul>
         {movies && movies.length > 0 ? (
           movies.map((movie) => (
             <li key={movie.imdbID}>
-              <h2>
+              <li>
                 {movie.Title} ({movie.Year})
-              </h2>
+              </li>
+              <li>
               <img src={movie.Poster} alt={movie.Title} />
-            </li>
+              </li>
+              </li>
           ))
         ) : (
           <div className='error'>Invalid movie name. Please try again.</div>
