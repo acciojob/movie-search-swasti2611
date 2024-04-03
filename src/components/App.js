@@ -24,7 +24,7 @@ const App = () => {
     <form onSubmit={(e)=>handleSearch(e)}>
       <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
       <button type="submit" >Search</button>
-</form> //
+</form> 
       <ul>
         {movies ? 
          movies.map((movie) => (
@@ -35,7 +35,7 @@ const App = () => {
             <img src={movie.Poster} alt={movie.Title} />
           </li>
         )):
-        <div className='error'>Invalid movie name. Please try again.</div>}
+        <p className='error'>Invalid movie name. Please try again.</p>}
       </ul>
     </div>
   );
