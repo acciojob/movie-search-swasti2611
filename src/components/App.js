@@ -26,7 +26,7 @@ const App = () => {
       <button type="submit" >Search</button>
 </form> 
       <ul>
-        {!movies ? <p className='error'>Invalid movie name. Please try again.</p>
+        {!movies ? <div className='error'>Invalid movie name. Please try again.</div>
         : 
          movies.map((movie) => (
           <li key={movie.imdbID}>
