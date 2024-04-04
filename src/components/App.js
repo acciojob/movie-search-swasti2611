@@ -26,7 +26,8 @@ const App = () => {
       <button type="submit" >Search</button>
 </form> 
       <ul>
-        {movies ? 
+        {!movies ? <p className='error'>Invalid movie name. Please try again.</p>
+        : 
          movies.map((movie) => (
           <li key={movie.imdbID}>
             <h2>
@@ -34,8 +35,8 @@ const App = () => {
             </h2>
             <img src={movie.Poster} alt={movie.Title} />
           </li>
-        )):
-        <p className='error'>Invalid movie name. Please try again.</p>}
+        ))
+        }  
       </ul>
     </div>
   );
